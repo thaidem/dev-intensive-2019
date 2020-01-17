@@ -32,8 +32,12 @@ class ExampleUnitTest {
 //        val user = User.makeUser("John Travolta")
 //        val user2 = User.makeUser("John Cohen")
         val user = User.makeUser("John Malkovich")
+        val user3 = User.makeUser("John")
+        val user4 = User.makeUser("")
+        val user5 = User.makeUser(" ")
+        val user6 = User.makeUser(null)
         val user2 = user.copy(id = "2", lastName = "Travolta")
-        print("$user \n$user2")
+        print("$user \n$user3 \n$user4 \n$user5 \n$user6 \n$user2")
     }
 
     @Test

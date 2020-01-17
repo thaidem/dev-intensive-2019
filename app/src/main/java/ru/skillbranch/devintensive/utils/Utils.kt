@@ -1,5 +1,7 @@
 package ru.skillbranch.devintensive.utils
 
+import java.lang.IllegalStateException
+
 object Utils {
     fun parseFullName(fullName:String?):Pair<String?, String?> {
         val parts : List<String>? = fullName?.split(" ")
@@ -7,8 +9,13 @@ object Utils {
         val firstName = parts?.getOrNull(0)
         val lastName = parts?.getOrNull(1)
 
-//        return Pair(firstName, lastName)
-        return firstName to lastName
+        return when {
+            firstName != null && firstName != "" && lastName != null && lastName != "" -> firstName to lastName
+            firstName != null && firstName != "" && lastName == null -> firstName to null
+            firstName == "" || firstName == null && lastName == "" || lastName == null -> null to null
+            else -> throw IllegalStateException("Ошибка имени")
+        }
+
     }
 
     fun transliteration(payload:String, divider:String = " "): String {
