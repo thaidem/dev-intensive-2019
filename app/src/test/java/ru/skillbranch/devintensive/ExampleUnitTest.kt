@@ -8,6 +8,7 @@ import ru.skillbranch.devintensive.extensions.add
 import ru.skillbranch.devintensive.extensions.format
 import ru.skillbranch.devintensive.extensions.toUserView
 import ru.skillbranch.devintensive.models.*
+import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
 /**
@@ -62,7 +63,8 @@ class ExampleUnitTest {
             ${user.lastVisit?.format()} 
             ${user2.lastVisit?.format()} 
             ${user3.lastVisit?.format()} 
-            ${user4.lastVisit?.format()} 
+            ${user4.lastVisit?.format("HH:mm")}
+             
         """.trimIndent())
     }
 
@@ -75,6 +77,19 @@ class ExampleUnitTest {
         val userView = user.toUserView()
 
         userView.printMe()
+    }
+
+    @Test
+    fun test_toInitials() {
+        println("""
+            ${Utils.toInitials("john" ,"doe")}
+            ${Utils.toInitials("John", null)}
+            ${Utils.toInitials(null, "John")}
+            ${Utils.toInitials(null, null)}
+            ${Utils.toInitials(" ", "")}
+
+        """.trimIndent())
+
     }
 
     @Test
