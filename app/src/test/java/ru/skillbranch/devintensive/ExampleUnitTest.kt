@@ -61,12 +61,29 @@ class ExampleUnitTest {
 
         println("""
             ${user.lastVisit?.format()} 
-            ${user2.lastVisit?.format()} 
+            ${user2.lastVisit?.format("dd.MM HH:mm")} 
             ${user3.lastVisit?.format()} 
             ${user4.lastVisit?.format("HH:mm")}
              
         """.trimIndent())
     }
+
+    @Test
+    fun formatTest(){
+        val calendar = Calendar.getInstance()
+        calendar.set(1988, 0, 12, 17,50, 0)
+        val date = Date.from(calendar.toInstant())
+        /* skillBranch tests */
+        assertEquals("17:50:00 12.01.88", date.format())
+        assertEquals("17:50", date.format("HH:mm"))
+
+        /* additional tests */
+        assertEquals("50:00", date.format("mm:ss"))
+        assertEquals("01.12.1988", date.format("MM.dd.yyyy"))
+        assertEquals("12.1.1988", date.format("d.M.Y"))
+        assertEquals("5:50:0", date.format("h:m:s"))
+    }
+
 
     @Test
     fun test_data_mapping() {
