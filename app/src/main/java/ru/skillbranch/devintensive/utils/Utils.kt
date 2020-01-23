@@ -4,7 +4,7 @@ import java.lang.IllegalStateException
 
 object Utils {
     fun parseFullName(fullName: String?): Pair<String?, String?> {
-        val parts: List<String>? = fullName?.split(" ")
+        val parts: List<String>? = fullName?.trim()?.split(" ")
 
         val firstName = parts?.getOrNull(0)
         val lastName = parts?.getOrNull(1)
@@ -63,7 +63,7 @@ object Utils {
                 "Д" -> "D"
                 "Е" -> "E"
                 "Ё" -> "E"
-                "Ж" -> "ZH"
+                "Ж" -> "Zh"
                 "З" -> "Z"
                 "И" -> "I"
                 "Й" -> "I"
@@ -80,60 +80,20 @@ object Utils {
                 "Ф" -> "F"
                 "Х" -> "H"
                 "Ц" -> "C"
-                "Ч" -> "CH"
-                "Ш" -> "SH"
-                "Щ" -> "SH"
+                "Ч" -> "Ch"
+                "Ш" -> "Sh"
+                "Щ" -> "Sh'"
                 "Ъ" -> ""
                 "Ы" -> "I"
                 "Ь" -> ""
                 "Э" -> "E"
-                "Ю" -> "YU"
-                "Я" -> "YA"
+                "Ю" -> "Yu"
+                "Я" -> "Ya"
                 else -> letter.value
             }
         }
 
-//        var word: String = ""
-//        for (letter in payload) {
-//            if (letter.toString() != " ") {
-//                when(letter.toString()) {
-//                    "а" -> "a"
-//                    "б" -> "b"
-//                    "в" -> "v"
-//                    "г" -> "g"
-//                    "д" -> "d"
-//                    "е" -> "e"
-//                    "ё" -> "e"
-//                    "ж" -> "zh"
-//                    "з" -> "z"
-//                    "и" -> "i"
-//                    "й" -> "i"
-//                    "к" -> "k"
-//                    "л" -> "l"
-//                    "м" -> "m"
-//                    "н" -> "n"
-//                    "о" -> "o"
-//                    "п" -> "p"
-//                    "р" -> "r"
-//                    "с" -> "s"
-//                    "т" -> "t"
-//                    "у" -> "u"
-//                    "ф" -> "f"
-//                    "х" -> "h"
-//                    "ц" -> "c"
-//                    "ч" -> "ch"
-//                    "ш" -> "sh"
-//                    "щ" -> "sh'"
-//                    "ъ" -> ""
-//                    "ы" -> "i"
-//                    "ь" -> ""
-//                    "э" -> "e"
-//                    "ю" -> "yu"
-//                    "я" -> "ya"
-//                }
-//            }
-//        }
-//        return word
+
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
@@ -146,11 +106,10 @@ object Utils {
             iFirstName == null && iLastName == null -> null
             else -> throw IllegalStateException("Ошибка инициалов")
         }
-
     }
 }
 
 private fun iName(name: String?): String? {
-    return if (name != null && name != "" && name != " ") name?.first()?.toUpperCase().toString() else null
+    return if (name?.trim() != null && name != "" && name != " ") name?.trim().first()?.toUpperCase().toString() else null
 }
 
