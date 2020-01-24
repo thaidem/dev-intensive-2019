@@ -1,6 +1,5 @@
 package ru.skillbranch.devintensive.extensions
 
-import java.lang.IllegalStateException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -60,45 +59,6 @@ fun Date.humanizeDiff(value:Date = Date()): String {
         else -> if (isFuture) "более чем через год" else "более года назад"
     }
 
-//    val diff = date.time - this.time
-//
-//    return when {
-//        -(SECOND) <= diff && diff <= SECOND -> "только что"
-//        SECOND < diff && diff <= SECOND * 45 -> "несколько секунд назад"
-//        SECOND * 45 < diff && diff <= SECOND * 75 -> "минуту назад"
-//        SECOND * 75 < diff && diff <= SECOND * 90 -> "1 минуту назад"
-//        SECOND * 90 < diff && diff <= SECOND * 300 -> "${(diff / MINUTE)} минуты назад"
-//        SECOND * 300 < diff && diff <= MINUTE * 45 -> "${(diff / MINUTE)} минут назад"
-//        MINUTE * 45 < diff && diff <= MINUTE * 75 -> "час назад"
-//        MINUTE * 75 < diff && diff <= MINUTE * 90 -> "1 час назад"
-//        MINUTE * 90 < diff && diff < MINUTE * 300 -> "${(diff / HOUR)} часа назад"
-//        MINUTE * 300 <= diff && diff <= HOUR * 20 -> "${(diff / HOUR)} часов назад"
-//        MINUTE * 20 < diff && diff <= HOUR * 21 -> "${(diff / HOUR)} час назад"
-//        MINUTE * 21 < diff && diff <= HOUR * 22 -> "${(diff / HOUR)} часа назад"
-//        HOUR * 22 < diff && diff <= HOUR * 26 -> "день назад"
-//        HOUR * 26 < diff && diff <= HOUR * 30 -> "1 день назад"
-//        HOUR * 30 < diff && diff <= HOUR * 100 -> "${(diff / DAY)} дня назад"
-//        HOUR * 100 < diff && diff <= DAY * 360 -> "${(diff / DAY)} дней назад"
-//        DAY * 360 <= diff -> "более года назад"
-//        -(SECOND) <= diff && diff < 0 -> "сейчас"
-//        -(SECOND * 45) <= diff && diff < -(SECOND) -> "через несколько секунд"
-//        -(SECOND * 75) <= diff && diff < -(SECOND * 45) -> "через минуту"
-//        -(SECOND * 90) <= diff && diff < -(SECOND * 75) -> "через 1 минуту"
-//        -(SECOND * 300) <= diff && diff < -(SECOND * 90) -> "через ${(diff / MINUTE) * (-1)} минуты"
-//        -(MINUTE * 45) <= diff && diff < -(SECOND * 300) -> "через ${(diff / MINUTE) * (-1)} минут"
-//        -(MINUTE * 75) <= diff && diff < -(MINUTE * 45) -> "через час"
-//        -(MINUTE * 90) <= diff && diff < -(MINUTE * 75) -> "через 1 час"
-//        -(MINUTE * 300) <= diff && diff < -(MINUTE * 90) -> "через ${(diff / HOUR) * (-1)} часа"
-//        -(HOUR * 20) <= diff && diff < -(MINUTE * 300) -> "через ${(diff / HOUR) * (-1)} часов"
-//        -(HOUR * 21) <= diff && diff < -(HOUR * 20) -> "через ${(diff / HOUR) * (-1)} час"
-//        -(HOUR * 22) <= diff && diff < -(HOUR * 21) -> "через ${(diff / HOUR) * (-1)} часа"
-//        -(HOUR * 26) <= diff && diff < -(HOUR * 22) -> "через день"
-//        -(HOUR * 30) <= diff && diff < -(HOUR * 26) -> "через 1 день"
-//        -(HOUR * 100) <= diff && diff < -(HOUR * 30) -> "через ${(diff / DAY) * (-1)} дня"
-//        -(DAY * 360) <= diff && diff < -(HOUR * 100) -> "через ${(diff / DAY) * (-1)} дней"
-//        -(DAY * 360) > diff -> "более чем через год"
-//        else -> throw IllegalStateException("wrong data")
-//    }
 
 }
 
