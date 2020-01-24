@@ -11,3 +11,7 @@ fun String.truncate(num: Int = 16): String {
          result
     } else StringBuilder(result.substring(0 until num).trim()).append("...").toString()
 }
+
+fun String.stripHtml(): String {
+    return replace(Regex(pattern = "(<.+?>)|(&((\\w+)|(#\\w+));)"),"").replace(Regex(pattern = " {2,}")," ")
+}
